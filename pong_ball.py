@@ -1,7 +1,6 @@
 from turtle import Turtle
-import random
 
-MOVE_DIST = 20
+MOVE_DIST = 0.3
 
 
 class Ball(Turtle):
@@ -11,9 +10,18 @@ class Ball(Turtle):
         self.shapesize(1.5, 1.5)
         self.penup()
         self.color("white")
-        #self.setheading(random.randint(0, 360))
-        self.setheading(60)
-        self.speed(1)
+        self.x_move = 0.3
+        self.y_move = 0.3
 
     def move(self):
-        self.forward(MOVE_DIST)
+        self.speed(1)
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(new_x, new_y)
+
+    def bounce_y(self):
+        self.y_move *= -1
+
+    def bounce_x(self):
+        self.x_move *= -1
+
