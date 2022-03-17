@@ -24,7 +24,7 @@ screen.onkey(r_pad.down, "Down")
 
 while game_is_on:
     screen.update()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ball.move()
 
     # collision with wall
@@ -42,16 +42,24 @@ while game_is_on:
             elif ball.ycor() < -380:
                 ball.setheading(ball.heading()+270)
 
-        # ball.move()
-        print("used")
-
     # collision with goal
-    if ball.xcor() > 590 or ball.xcor() < -590:
-        if 0 < ball.heading() < 90 or (270 < ball.heading() < 360):
+    if ball.xcor() > 590:
+        # score to left
+        pass
+    if ball.xcor() < -590:
+        # score to right
+        pass
+
+    # collision with pads
+    if ball.distance(r_pad) < 30:
+        if 0 < ball.heading() < 90:
             ball.setheading(ball.heading() + 270)
-        if
-        ball.setheading(ball.heading()+90)
-        ball.move()
-        print("here")
+        elif (270 < ball.heading() < 360):
+            ball.setheading(ball.heading() + 90)
+
+
+game_is_on = False
+
+
 
 screen.exitonclick()

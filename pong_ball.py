@@ -12,7 +12,8 @@ class Ball(Turtle):
         self.penup()
         self.color("white")
         #self.setheading(random.randint(0, 360))
-        self.setheading(45)
+        self.setheading(60)
+        self.speed(1)
 
     def move(self):
         self.forward(MOVE_DIST)
