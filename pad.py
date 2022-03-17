@@ -1,13 +1,8 @@
 from turtle import Turtle
 
-# RIGHT_POS = [(560, -40), (560, -20), (560, 0), (560, 20), (560, 40)]
-# LEFT_POS = [(-560, -40), (-560, -20), (-560, 0), (-560, 20), (-560, 40)]
 RIGHT_POS = (560, 0)
 LEFT_POS = (-560, 0)
-
 MOVE_DIST = 20
-UP = 90
-DOWN = 270
 
 
 class Pad(Turtle):
