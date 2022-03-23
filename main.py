@@ -34,18 +34,18 @@ while game_is_on:
         ball.bounce_y()
 
     # collision with pads
-    print(str(ball.distance(r_pad)) +"   "+ str(ball.xcor()))
-
+    # print(str(ball.distance(r_pad)) +"   "+ str(ball.xcor()))
     if ball.distance(r_pad) < 50 and ball.xcor() > 520 or ball.distance(l_pad) < 50 and ball.xcor() < -520:
         ball.bounce_x()
 
-    # # collision with goal
-    # if ball.xcor() > 590:
-    #     # score to left
-    #     pass
-    # if ball.xcor() < -590:
-    #     # score to right
-    #     pass
+    # collision with goal
+    if ball.xcor() > 590:
+        # score to left
+        # reset the ball
+        ball.ball_reset("left")
+    if ball.xcor() < -590:
+        # score to right
+        ball.ball_reset("right")
 
 
 # game_is_on = False
