@@ -11,6 +11,8 @@ screen.tracer(0)
 
 game_is_on = True
 
+
+
 ball = Ball()
 l_pad = Pad("left")
 r_pad = Pad("right")
@@ -24,7 +26,7 @@ screen.onkey(r_pad.down, "Down")
 
 while game_is_on:
     screen.update()
-    # time.sleep(0.1)
+    #time.sleep(0.1)
     ball.move()
 
     # collision with wall
@@ -32,23 +34,19 @@ while game_is_on:
         ball.bounce_y()
 
     # collision with pads
-    if ball.distance(r_pad) < 50 :
+    print(str(ball.distance(r_pad)) +"   "+ str(ball.xcor()))
+
+    if ball.distance(r_pad) < 50 and ball.xcor() > 520 or ball.distance(l_pad) < 50 and ball.xcor() < -520:
         ball.bounce_x()
-        print("some")
 
-    # collision with goal
-    if ball.xcor() > 590:
-        # score to left
-        pass
-    if ball.xcor() < -590:
-        # score to right
-        pass
-
+    # # collision with goal
+    # if ball.xcor() > 590:
+    #     # score to left
+    #     pass
+    # if ball.xcor() < -590:
+    #     # score to right
+    #     pass
 
 
-
-game_is_on = False
-
-
-
+# game_is_on = False
 screen.exitonclick()
