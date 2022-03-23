@@ -1,6 +1,7 @@
 from turtle import Screen
 from pong_ball import Ball
 from pad import Pad
+from score import ScoreBoard
 import time
 
 screen = Screen()
@@ -16,6 +17,7 @@ game_is_on = True
 ball = Ball()
 l_pad = Pad("left")
 r_pad = Pad("right")
+scoreboard = ScoreBoard()
 
 screen.listen()
 screen.onkey(l_pad.up, "w")
@@ -43,9 +45,13 @@ while game_is_on:
         # score to left
         # reset the ball
         ball.ball_reset("left")
+        scoreboard.l_score += 1
+        scoreboard.update()
     if ball.xcor() < -590:
         # score to right
         ball.ball_reset("right")
+        scoreboard.r_score += 1
+        scoreboard.update()
 
 
 # game_is_on = False
